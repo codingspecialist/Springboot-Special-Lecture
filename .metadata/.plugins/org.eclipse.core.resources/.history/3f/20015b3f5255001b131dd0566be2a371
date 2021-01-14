@@ -1,0 +1,5 @@
+package com.example.mus.web;
+
+public class IndexController {
+
+}

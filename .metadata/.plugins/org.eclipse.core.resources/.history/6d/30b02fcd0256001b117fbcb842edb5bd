@@ -1,0 +1,12 @@
+package com.cos.start.web;
+
+public class Hobbang {
+	
+	public Hobbang() {
+	
+	}
+	
+	public void eat() {
+		System.out.println("호빵 맛있어");
+	}
+}

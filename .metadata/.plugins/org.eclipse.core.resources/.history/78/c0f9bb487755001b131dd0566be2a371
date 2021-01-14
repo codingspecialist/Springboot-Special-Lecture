@@ -1,0 +1,28 @@
+package unittest.ch03;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import unittest.Calculator;
+import unittest.Person;
+
+public class AssertionsDemo {
+	private final Calculator calculator = new Calculator();
+    private final Person person = new Person("Jane", "Doe");
+    
+    @Test
+    void 기본assert() {
+    	assertEquals(2, calculator.add(1, 1));
+    	assertEquals(4, calculator.multiply(2, 2), "값이 잘못 들어감.");
+    	assertTrue(2<2, ()-> "실패");
+    	//assertTrue(2<2, "실패");
+    }
+    
+    void 그룹assert() {
+    	assertAll("person",
+    			()-> assertEquals("Jane", person.getFirstName()),
+    			()-> assertEquals("Jane", person.getLastName());
+    }
+}

@@ -1,0 +1,23 @@
+package com.cos.start.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Hobbang2Controller {
+
+	Hobbang h;
+	
+	@GetMapping("/ho")
+	public String ho() {
+		h = new Hobbang();
+		h.eat();
+		return "ho() 호출됨";
+	}
+	
+	@GetMapping("/ho2")
+	public String ho2() {
+		h.eat();
+		return "ho2() 호출됨";
+	}
+}

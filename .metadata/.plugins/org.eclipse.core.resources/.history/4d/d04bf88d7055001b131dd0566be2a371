@@ -1,0 +1,33 @@
+package unittest.ch01;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.suite.api.ExcludeTags;
+
+class Calculator {
+	public int add(int n1, int n2) {
+		return n1 + n2;
+	}
+}
+
+@ExcludeTags("development")
+public class MyFirstJUnitJupiterTests {
+
+	private final Calculator calculator = new Calculator();
+
+	@Test
+	@Tag("development")
+	void testCaseB() {
+		System.out.println("testCaseB");
+	}
+
+
+	@Test
+	@Tag("production")
+	void addition() {
+		System.out.println("addition");
+		assertEquals(2, calculator.add(1, 1));
+	}
+}

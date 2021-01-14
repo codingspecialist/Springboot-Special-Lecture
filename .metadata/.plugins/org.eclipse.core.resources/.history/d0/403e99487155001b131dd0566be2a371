@@ -1,0 +1,29 @@
+package unittest.ch01;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+class Calculator {
+	public int add(int n1, int n2) {
+		return n1 + n2;
+	}
+}
+
+
+public class MyFirstJUnitJupiterTests {
+
+	private final Calculator calculator = new Calculator();
+
+	@Test
+	void testCaseB() {
+		System.out.println("testCaseB");
+	}
+
+
+	@Test
+	void addition() {
+		System.out.println("addition");
+		assertEquals(2, calculator.add(1, 1));
+	}
+}

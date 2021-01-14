@@ -1,0 +1,14 @@
+package com.cos.start.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class IndexController {
+	
+	//  http://localhost:8080/start/index
+	@GetMapping("/index")
+	public String index() {
+		return "index함수입니다.";
+	}
+}

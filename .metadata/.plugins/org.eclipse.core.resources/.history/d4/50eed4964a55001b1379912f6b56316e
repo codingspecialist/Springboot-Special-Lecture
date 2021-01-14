@@ -1,0 +1,22 @@
+package com.example.demo.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// 디스패쳐 서블릿 필터 @Controller @RestController
+// 그 클래스에서 / 주소로 매핑된 메서드가 있는지 리플렉션
+// @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
+// GET으로 했으면 GetMapping이 걸려있는 함수만 찾아내서
+// / 로 주소가 걸려있는 함수를 invoke해준다.
+// http://localhost:8080/
+
+
+@RestController
+public class IndexController {
+
+	@GetMapping("/")
+	public void index() {
+		System.out.println("index() 호출됨");
+	}
+}

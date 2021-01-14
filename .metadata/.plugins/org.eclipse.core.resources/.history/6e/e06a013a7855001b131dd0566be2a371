@@ -1,0 +1,47 @@
+package unittest.ch03;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import unittest.Calculator;
+import unittest.Person;
+
+public class AssertionsDemo {
+	private final Calculator calculator = new Calculator();
+    private final Person person = new Person("Jane", "Doe");
+    
+    @Test
+    @Disabled // 실행금지
+    void 기본assert() {
+    	assertEquals(2, calculator.add(1, 1));
+    	assertEquals(4, calculator.multiply(2, 2), "값이 잘못 들어감.");
+    	assertTrue(2<2, ()-> "실패");
+    	//assertTrue(2<2, "실패");
+    }
+    
+    @Test
+    @Disabled // 실행금지
+    void 그룹assert() {
+    	assertAll("person",
+    			()-> assertEquals("Jane", person.getFirstName()),
+    			()-> assertEquals("Doe", person.getLastName()));
+    }
+    
+    @Test
+    void 그룹assert2() {
+    	assertAll("person",
+    			()-> {
+    				String firstName = person.getFirstName();
+    				assertNotNull(firstName);
+    				
+    				// 위에 코드가 정상이면 아래 코드 실행됨
+    				System.out.println("체크");
+    				assertEquals("Doe", person.getLastName());
+    			});
+    }
+}

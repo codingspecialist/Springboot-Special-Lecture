@@ -1,0 +1,20 @@
+package com.cos.start.web;
+
+public class IoCContainer {
+
+	IndexController i;
+	UserController u;
+	BoardController b;
+	HelloController h;
+	
+	public void 객체모음() {
+		i  = new IndexController();
+		i  = new UserController();
+		i  = new BoardController();
+		i  = new HelloController();
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

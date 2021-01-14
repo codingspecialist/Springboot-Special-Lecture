@@ -1,0 +1,9 @@
+package com.cos.person.domain;
+
+import lombok.Data;
+
+@Data
+public class CommonDto<T> {
+	private int statusCode;
+	private T data;
+}

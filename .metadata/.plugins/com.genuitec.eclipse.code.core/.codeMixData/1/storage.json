@@ -1,0 +1,14 @@
+{
+    "telemetry.machineId": "d705a836165c6ff73a048c78b6f57f6a2565e0117a4ac00e1d468f1864e32e7e",
+    "openedPathsList": {
+        "workspaces3": [
+            {
+                "id": "3d5d9329f3ba092af9baec465ed555da",
+                "configURIPath": "file:///c%3A/mylab/springwork/.metadata/codemix.code-workspace"
+            }
+        ],
+        "files2": []
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e"
+}

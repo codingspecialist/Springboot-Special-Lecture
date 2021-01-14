@@ -1,0 +1,14 @@
+package com.cos.start.web;
+
+public class IoCContainer {
+
+	IndexController i;
+	
+	public void 객체모음() {
+		i  = new IndexController();
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

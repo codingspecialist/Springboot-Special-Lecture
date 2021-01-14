@@ -1,0 +1,5 @@
+package com.cos.person.domain;
+
+public class JoinReqDto {
+
+}

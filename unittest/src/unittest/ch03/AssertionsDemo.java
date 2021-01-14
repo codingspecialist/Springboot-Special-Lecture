@@ -1,0 +1,106 @@
+package unittest.ch03;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.time.Duration;
+import java.util.concurrent.CountDownLatch;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import unittest.Calculator;
+import unittest.Person;
+
+public class AssertionsDemo {
+	private final Calculator calculator = new Calculator();
+    private final Person person = new Person("Jane", "Doe");
+    
+    @Test
+    @Disabled // 실행금지
+    void 기본assert() {
+    	assertEquals(2, calculator.add(1, 1));
+    	assertEquals(4, calculator.multiply(2, 2), "값이 잘못 들어감.");
+    	assertTrue(2<2, ()-> "실패");
+    	//assertTrue(2<2, "실패");
+    }
+    
+    @Test
+    @Disabled // 실행금지
+    void 그룹assert() {
+    	assertAll("person",
+    			()-> assertEquals("Jane", person.getFirstName()),
+    			()-> assertEquals("Doe", person.getLastName()));
+    }
+    
+    @Test
+    @Disabled
+    void 그룹의존적assert() {
+    	assertAll("person",
+    			()-> {
+    				String firstName = person.getFirstName();
+    				assertNotNull(firstName);
+    				
+    				// 위에 코드가 정상이면 아래 코드 실행됨
+    				System.out.println("나 실행됨?");
+    				assertEquals("Doe", person.getLastName());
+    			});
+    }
+    
+    @Test
+    @Disabled
+    void exceptionTesting() {
+        Exception exception = assertThrows(ArithmeticException.class, () ->
+            calculator.divide(1, 0));
+        assertEquals("/ by zero", exception.getMessage());
+    }
+    
+    @Test
+    @Disabled
+    void timeoutNotExceeded() {
+        // The following assertion succeeds.
+        assertTimeout(Duration.ofSeconds(2), () -> {
+        	System.out.println("시작");
+        	Thread.sleep(1000);
+            System.out.println("끝");
+        });
+  
+    }
+    
+    @Test
+    @Disabled
+    void 새로운문법땡땡1() {
+    	String help = assertTimeout(Duration.ofSeconds(2), AssertionsDemo::greeting1);
+    	assertEquals("인사1", help);
+    }
+    
+    @Test
+    void 새로운문법땡땡2() {
+    	String help = assertTimeout(Duration.ofSeconds(2), new AssertionsDemo()::greeting2);
+    	assertEquals("인사2", help);
+    }
+    
+    private static String greeting1() {
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return "인사1";
+    }
+    
+    private String greeting2() {
+    	try {
+			Thread.sleep(1900);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return "인사2";
+    }
+}

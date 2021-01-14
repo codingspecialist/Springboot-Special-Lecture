@@ -1,0 +1,13 @@
+package com.cos.start.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HobbangController {
+
+	@GetMapping("/ho")
+	public String ho() {
+		return "ho() 호출됨";
+	}
+}

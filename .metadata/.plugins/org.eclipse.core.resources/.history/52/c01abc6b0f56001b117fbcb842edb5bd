@@ -1,0 +1,5 @@
+package com.cos.person.web;
+
+public class UserController {
+
+}

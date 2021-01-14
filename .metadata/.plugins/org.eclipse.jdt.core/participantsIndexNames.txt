@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+C:\mylab\springwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1156474281.index
+\hello\src
+C:\mylab\springwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1173007322.index
+\web\src
+C:\mylab\springwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4136707171.index
+\start\src\main\java
+C:\mylab\springwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2527331081.index
+\start\src\main\java

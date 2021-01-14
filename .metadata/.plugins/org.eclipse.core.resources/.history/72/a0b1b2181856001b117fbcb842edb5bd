@@ -1,0 +1,74 @@
+package com.cos.person.web;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cos.person.domain.CommonDto;
+import com.cos.person.domain.User;
+import com.cos.person.domain.UserRepository;
+
+@RestController
+public class UserController {
+
+	private UserRepository userRepository;
+
+	// DI = 의존성 주입
+	public UserController(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+	
+	// http://localhost:8080/user
+	@GetMapping("/user")
+	public List<User> findAll() {
+		System.out.println("findAll()");
+		return userRepository.findAll(); // MessageConverter (JavaObject -> Json String)
+	}
+	
+	// http://localhost:8080/user/2
+	@GetMapping("/user/{id}")
+	public User findById(@PathVariable int id) {
+		System.out.println("findById() : id : "+id);
+		return userRepository.findById(id);
+	}
+	
+	@CrossOrigin
+	// http://localhost:8080/user
+	@PostMapping("/user")
+	// x-www-form-urlencoded => request.getParamter()
+	// text/plain => @RequestBody 어노테이션
+	// application/json => @ResponseBody 어노테이션 + 오브젝트로 받기
+	public ResponseEntity<CommonDto<String>> save(@RequestBody User user) {
+		System.out.println("save()");
+		System.out.println("user : "+user);
+		userRepository.save(user);
+		
+//		System.out.println("data : "+data);
+//		System.out.println("username : "+username);
+//		System.out.println("password : "+password);
+//		System.out.println("phone : "+phone);
+		
+		return new ResponseEntity<>(new CommonDto<>(200, "ok"), HttpStatus.OK);
+	}
+	
+	// http://localhost:8080/user/2
+	@DeleteMapping("/user/{id}")
+	public void delete(@PathVariable int id) {
+		System.out.println("delete()");
+	}
+	
+	// http://localhost:8080/user/2
+	@PutMapping("/user/{id}")
+	public void update(@PathVariable int id, String password, String phone) {
+		System.out.println("update()");	
+	}
+}
