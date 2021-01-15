@@ -1,0 +1,8 @@
+[2021-01-15 12:35:47:611932][http-nio-8080-exec-2] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임을 입력하세요.
+com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임을 입력하세요.
+[2021-01-15 12:39:22:827697][http-nio-8080-exec-2] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임을 입력하세요.
+[2021-01-15 12:57:06:8478][http-nio-8080-exec-1] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임을 입력하세요.
+[2021-01-15 14:13:18:4580877][http-nio-8080-exec-5] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임을 입력하세요.
+[2021-01-15 14:13:18:4580889][http-nio-8080-exec-5] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임 키값이 없습니다.
+[2021-01-15 14:14:16:4638233][http-nio-8080-exec-6] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.save() => 필드 : username, 메시지 : 유저네임 길이를 초과하였습니다.
+[2021-01-15 14:15:44:4726001][http-nio-8080-exec-9] WARN  com.cos.person.config.BindingAdvice - com.cos.person.web.UserController.update() => 필드 : password, 메시지 : password를 입력하지 않았습니다.
